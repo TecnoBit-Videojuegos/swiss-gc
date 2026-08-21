@@ -182,7 +182,7 @@ void drawCurrentDevice(uiDrawObj_t *containerPanel) {
 	} else {
 		uiDrawObj_t *devInfoBox = DrawTransparentBox(30, 225, 135, 330);	// Device size/extra info box
 		DrawAddChild(containerPanel, devInfoBox);
-        sdInfo_set((u32)(info->totalSpace / 1073741824), (u32)(info->freeSpace / 1073741824));
+        //sdInfo_set((u32)(info->totalSpace / 1073741824), (u32)(info->freeSpace / 1073741824));
 		
 		// Total space
 		uiDrawObj_t *devTotalLabel = DrawStyledLabel(83, 233, "Total:", 0.6f, ALIGN_CENTER, defaultColor);
