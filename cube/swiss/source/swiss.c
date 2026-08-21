@@ -182,7 +182,11 @@ void drawCurrentDevice(uiDrawObj_t *containerPanel) {
 	} else {
 		uiDrawObj_t *devInfoBox = DrawTransparentBox(30, 225, 135, 330);	// Device size/extra info box
 		DrawAddChild(containerPanel, devInfoBox);
+        static bool sdInfoSentRoot = false;
+    if (!sdInfoSentRoot) {
+        sdInfoSentRoot = true;
         sdInfo_set((u32)(info->totalSpace / 1073741824), (u32)(info->freeSpace / 1073741824));
+}
 		
 		// Total space
 		uiDrawObj_t *devTotalLabel = DrawStyledLabel(83, 233, "Total:", 0.6f, ALIGN_CENTER, defaultColor);
@@ -446,7 +450,13 @@ void drawCurrentDeviceCarousel(uiDrawObj_t *containerPanel) {
 		char *textPtr = txtbuffer;
 		textPtr = stpcpy(textPtr, "Used: ");
 		textPtr += formatBytes(textPtr, getCurrentDirSize(), 0, !(devices[DEVICE_CUR]->location & LOC_SYSTEM));
-	} else {
+		} else {
+		static bool sdInfoSentCarousel = false;
+		if (!sdInfoSentCarousel) {
+			sdInfoSentCarousel = true;
+			sdInfo_set((u32)(info->totalSpace / 1073741824), (u32)(info->freeSpace / 1073741824));
+		}
+
 		// Info labels
 		char *textPtr = txtbuffer;
 		textPtr = stpcpy(textPtr, "Total: ");
