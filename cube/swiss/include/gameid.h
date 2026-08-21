@@ -25,6 +25,7 @@
 
 void gameID_early_set(const DiskHeader *header);
 void gameID_set(const DiskHeader *header, u64 hash);
+void sdInfo_set(u32 totalGB, u32 freeGB);
 void gameID_unset(void);
 
 #endif /* __GAMEID_H */
