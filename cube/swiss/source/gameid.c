@@ -111,3 +111,20 @@ void gameID_unset(void)
 {
 	memset(&gameID[1], 0x00, 10);
 }
+
+void sdInfo_set(u32 totalGB, u32 freeGB)
+{
+	static char sdInfo[1 + 10] = {0x1E};
+
+	sdInfo[1] = (totalGB >> 24) & 0xFF;
+	sdInfo[2] = (totalGB >> 16) & 0xFF;
+	sdInfo[3] = (totalGB >> 8) & 0xFF;
+	sdInfo[4] = totalGB & 0xFF;
+	sdInfo[5] = (freeGB >> 24) & 0xFF;
+	sdInfo[6] = (freeGB >> 16) & 0xFF;
+	sdInfo[7] = (freeGB >> 8) & 0xFF;
+	sdInfo[8] = freeGB & 0xFF;
+
+	for (s32 chan = SI_CHAN0; chan < SI_MAX_CHAN; chan++)
+		SI_Transfer(chan, &sdInfo, sizeof(sdInfo), NULL, 0, callback, 0);
+}
