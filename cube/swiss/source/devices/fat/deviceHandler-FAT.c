@@ -420,7 +420,7 @@ bool deviceHandler_FAT_test_sd_a() {
 			__device_sd_a.hwName = "SD Card Adapter";
 	}
 	if (__io_gcsda.features & FEATURE_GAMECUBE_SLOTA) {
-		__device_sd_a.deviceName = "SD Card - Slot A";
+		__device_sd_a.deviceName = "SD Card";
 		__device_sd_a.location = LOC_MEMCARD_SLOT_A;
 	} else if (__io_gcsda.features & FEATURE_GAMECUBE_PORT1) {
 		__device_sd_a.deviceName = "SD Card - SD2SP1";
@@ -654,7 +654,7 @@ char* deviceHandler_FAT_details(file_handle* file) {
 DEVICEHANDLER_INTERFACE __device_sd_a = {
 	.deviceUniqueId = DEVICE_ID_1,
 	.hwName = "SD Card Adapter",
-	.deviceName = "SD Card - Slot A",
+	.deviceName = "SD Card",
 	.deviceDescription = "SD(HC/XC) Card - Supported File System(s): FAT16, FAT32, exFAT",
 	.deviceTexture = {TEX_SDSMALL, 59, 78, 64, 80},
 	.features = FEAT_READ|FEAT_WRITE|FEAT_BOOT_GCM|FEAT_BOOT_DEVICE|FEAT_CONFIG_DEVICE|FEAT_AUTOLOAD_DOL|FEAT_THREAD_SAFE|FEAT_HYPERVISOR|FEAT_PATCHES|FEAT_AUDIO_STREAMING|FEAT_EXI_SPEED,
@@ -684,7 +684,7 @@ DEVICEHANDLER_INTERFACE __device_sd_a = {
 DEVICEHANDLER_INTERFACE __device_sd_b = {
 	.deviceUniqueId = DEVICE_ID_2,
 	.hwName = "SD Card Adapter",
-	.deviceName = "SD Card",
+	.deviceName = "SD Card - Slot B",
 	.deviceDescription = "SD(HC/XC) Card - Supported File System(s): FAT16, FAT32, exFAT",
 	.deviceTexture = {TEX_SDSMALL, 59, 78, 64, 80},
 	.features = FEAT_READ|FEAT_WRITE|FEAT_BOOT_GCM|FEAT_BOOT_DEVICE|FEAT_CONFIG_DEVICE|FEAT_AUTOLOAD_DOL|FEAT_THREAD_SAFE|FEAT_HYPERVISOR|FEAT_PATCHES|FEAT_AUDIO_STREAMING|FEAT_EXI_SPEED,
