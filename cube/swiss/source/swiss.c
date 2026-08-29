@@ -152,9 +152,9 @@ void drawCurrentDevice(uiDrawObj_t *containerPanel) {
 	if(devices[DEVICE_CUR]->location & LOC_SYSTEM)
 		sprintf(txtbuffer, "%s", "System");
 	else if(devices[DEVICE_CUR]->location == LOC_MEMCARD_SLOT_A)
-		sprintf(txtbuffer, "%s", "Slot A");
-	else if(devices[DEVICE_CUR]->location == LOC_MEMCARD_SLOT_B)
 		sprintf(txtbuffer, "%s", "SD Card");
+	else if(devices[DEVICE_CUR]->location == LOC_MEMCARD_SLOT_B)
+		sprintf(txtbuffer, "%s", "Slot B");
 	else if(devices[DEVICE_CUR]->location == LOC_DVD_CONNECTOR)
 		sprintf(txtbuffer, "%s", "DVD Device");
 	else if(devices[DEVICE_CUR]->location == LOC_SERIAL_PORT_1)
